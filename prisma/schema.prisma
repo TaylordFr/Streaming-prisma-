@@ -17,6 +17,7 @@ model Songs {
   id Int @id @default(autoincrement())
   title String
   author String
-  length String
+  hossz Int
   price Int
+  rating Int @default(1)
 }

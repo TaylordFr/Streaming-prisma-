@@ -2,7 +2,7 @@ export class Song {
   id: number;
   title: string;
   author: string;
-  length: number;
+  hossz: number;
   price: number;
   rating: number;
 }

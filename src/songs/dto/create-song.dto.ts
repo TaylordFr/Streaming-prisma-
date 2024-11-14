@@ -2,17 +2,18 @@ import { IsNotEmpty, IsNumber, IsOptional, IsString, Max, Min } from "class-vali
 
 
 export class CreateSongDto {
+  
+  @IsNotEmpty()
+  @IsString()
+  title: string;
+  
   @IsString()
   @IsNotEmpty()
   author: string;
 
   @IsNotEmpty()
-  @IsString()
-  title: string;
-
-  @IsNotEmpty()
   @IsNumber()
-  length: number;
+  hossz: number;
 
   @IsNotEmpty()
   @IsNumber()
