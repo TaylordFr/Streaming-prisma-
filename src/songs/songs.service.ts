@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSongDto } from './dto/create-song.dto';
 import { UpdateSongDto } from './dto/update-song.dto';
-import { Song } from './entities/song.entity'
 import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
@@ -29,17 +28,19 @@ export class SongsService {
   }
 
   update(id: number, updateSongDto: UpdateSongDto) {
-    
+    return this.db.songs.update({
+      where: { 
+        id: id 
+      },
+      data: updateSongDto
+    })
   }
 
   remove(id: number) {
-    const index = this.songs.findIndex(song => song.id == id);
-
-    if(index == -1){
-      return false;
-    }
-
-    this.songs.splice(index, 1)
-    return true;
+    return this.db.songs.delete({
+      where: {
+        id: id
+      }
+    })
   }
 }
